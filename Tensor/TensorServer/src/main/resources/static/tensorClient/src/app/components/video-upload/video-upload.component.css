@@ -1,0 +1,16 @@
+.form-inline {
+    padding:10px;
+}
+.form-inline > * {
+    margin:25px 10px;
+}
+.form-control{
+    width:500px;
+}
+
+
+.file {
+    visibility: hidden;
+    position: absolute;
+  }
+  

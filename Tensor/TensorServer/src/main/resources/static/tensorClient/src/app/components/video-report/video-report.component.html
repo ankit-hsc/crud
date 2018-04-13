@@ -1,0 +1,67 @@
+<div class="container">
+  <h1  class="text-center">Report</h1>
+  
+      <form class="form-inline justify-content-center">
+        <div class="form-group">
+          <label class="sr-only" for="token">Enter Token:</label>
+          <input type="text" class="form-control" id="token" name="token" placeholder="Enter Token" [(ngModel)]="token">
+        </div>
+        <div class="form-group">
+               <label class="sr-only" for="sel1">Detection Type:</label>
+            <select class="form-control" name="ml" [(ngModel)]="ml">
+              <option value="select" selected>select</option>
+              <option value="Object">Object Detect</option>
+              <option value="Person">Person detect</option>
+                </select>
+         </div>
+         <button type="submit" class="btn btn-primary" (click)="getReport()">Generate Report</button>
+      </form>
+
+      <div *ngIf="loader">
+      <i class="fa fa-refresh fa-spin" style="font-size:50px;text-align: center;margin-top:100px;margin-left:520px;"></i>
+      </div>
+
+      <div *ngIf="listReport.length > 0">
+      <table class="table table-striped justify-content-center">
+        <thead>
+        <th>Token</th>
+        <th>Detection Type</th>
+        <th>Report</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{token}}</td>
+            <td>{{ml}}</td>
+            <td>
+              <a href="#" data-toggle="modal" data-target="#myModal">Click Here</a> to see Report
+             <!-- Modal -->
+              <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog modal-dialog-centered modal-lg" >
+                   <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-body">
+                    <li *ngFor="let report of listReport">
+                      {{report}}
+                    </li>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+
+            </td>
+          </tr>
+        </tbody>
+        
+        </table>
+      </div>
+    
+   </div>
+  
+
+
+
+
